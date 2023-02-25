@@ -1,0 +1,70 @@
+#!/usr/bin/env bash
+# Some utils for logging (in color).
+
+##################################################
+# Log message as [INFO].
+#
+# Globals
+#   None
+# Arguments
+#   message
+# Output
+#   Print formatted message to stdout.
+##################################################
+function log_info() {
+    local message="$@"
+    local BLUE=$(tput setaf 45)
+    local RESET=$(tput sgr0)
+    echo "${BLUE}[INFO] ${message}${RESET}"
+}
+
+##################################################
+# Log message as [ERROR].
+#
+# Globals
+#   None
+# Arguments
+#   message
+# Output
+#   Print formatted message to stderr.
+##################################################
+function log_error() {
+    local message="$@"
+    local RED=$(tput setaf 197)
+    local RESET=$(tput sgr0)
+    echo "${RED}[ERROR] ${message}${RESET}" >&2
+}
+
+##################################################
+# Log message as [WARN].
+#
+# Globals
+#   None
+# Arguments
+#   message
+# Output
+#   Print formatted message to stdout.
+##################################################
+function log_warning() {
+    local message="$@"
+    local ORANGE=$(tput setaf 202)
+    local RESET=$(tput sgr0)
+    echo "${ORANGE}[WARN] ${message}${RESET}"
+}
+
+##################################################
+# Log message as [SUCCESS].
+#
+# Globals
+#   None
+# Arguments
+#   message
+# Output
+#   Print formatted message to stdout.
+##################################################
+function log_success() {
+    local message="$@"
+    local GREEN=$(tput setaf 46)
+    local RESET=$(tput sgr0)
+    echo "${GREEN}[SUCCESS] ${message}${RESET}"
+}
